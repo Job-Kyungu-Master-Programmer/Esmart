@@ -1,0 +1,16 @@
+
+
+
+
+.ProfileDashboard {
+  @include section;
+
+  &__container {
+     width: $size;
+     height: $size;
+  }
+
+  &__title {
+    @include title;
+  }
+}

@@ -1,0 +1,442 @@
+// Variables
+$primary-color: #8e44ef;
+$secondary-color: #0f7be7;
+$text-color: #212529;
+$border-color: #dee2e6;
+$placeholder-color: #6c757d;
+$white: #ffffff;
+
+.login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $secondary-color;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+  
+  &__container {
+    background-color: $white;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__content {
+    display: flex;
+  }
+  
+  &__left {
+    flex: 1;
+    padding: 5em 2em 0 12em;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__right {
+    padding: .5em;
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 40em;
+    // border: 1px solid red;
+  }
+  
+  &__brand {
+    margin-bottom: 2rem;
+  }
+  
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: $primary-color;
+    font-size: 1.2rem;
+    
+    &-dot {
+      width: 10px;
+      height: 10px;
+      background-color: $primary-color;
+      margin-right: 0.5rem;
+      border-radius: 2px;
+    }
+  }
+  
+  &__welcome {
+    margin-bottom: 2.5rem;
+  }
+  
+  &__title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: .3em;
+    line-height: 1.2;
+    color: $text-color;
+  }
+  
+  &__subtitle {
+    font-size: 2em;
+    font-weight: 500;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    color: $text-color;
+  }
+  
+  &__description {
+    font-size: 1em;
+    color: $placeholder-color;
+    margin: 0;
+  }
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    // border: 1px solid red;
+    width: 70%;
+    // height: 2em;
+  }
+  
+  &__input-group {
+    margin-bottom: 1rem;
+
+    &--password {
+        position: relative;
+      }
+  }
+
+  &__password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  &__icon {
+    width: 22px;
+    height: 22px;
+    fill: $placeholder-color;
+    transition: fill 0.2s ease;
+    
+    &:hover {
+      fill: $primary-color;
+    }
+  }
+  
+  &__input {
+    width: 100%;
+    font-size: 16px;
+    padding: 1.2em 1rem;
+    border: 1px solid $border-color;
+    border-radius: 0.25rem;
+    background-color: $light-color;
+    font-size: 0.9rem;
+    color: $dark-color;
+    transition: border-color 0.15s ease-in-out;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+    
+    &::placeholder {
+      color: $placeholder-color;
+    }
+  }
+  
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+  }
+  
+  &__remember {
+    display: flex;
+    align-items: center;
+  }
+  
+  &__checkbox {
+    margin-right: 0.5rem;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    
+    &:checked {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 2px;
+        width: 5px;
+        height: 9px;
+        border: solid $white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+  
+  &__checkbox-label {
+    cursor: pointer;
+    color: $placeholder-color;
+  }
+  
+  &__forgot {
+    color: $placeholder-color;
+    text-decoration: none;
+    
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  
+  &__button {
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    padding: 1.2em 1rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.15s ease-in-out;
+    
+    &:hover {
+      background-color: darken($primary-color, 5%);
+    }
+  }
+  
+  &__signup {
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.85rem;
+    color: $placeholder-color;
+    
+    &-link {
+      color: $primary-color;
+      text-decoration: none;
+      font-weight: 600;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  // Illustration styling
+  &__illustration {
+    background-color: $primary-color;
+    border-radius: .65em;
+    width: 80em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  &__character {
+    position: relative;
+    width: 250px;
+    height: 250px;
+  }
+  
+  &__phone-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__phone {
+    position: relative;
+    width: 160px;
+    height: 320px;
+    background-color: $primary-color;
+    border-radius: 20px;
+    border: 8px solid rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-5deg);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      width: 60px;
+      height: 12px;
+      background-color: rgba(0,0,0,0.1);
+      border-radius: 6px;
+      left: calc(50% - 30px);
+    }
+  }
+  
+  &__fingerprint {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px dashed rgba(255,255,255,0.6);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.9);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  &__check-bubble {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: $white;
+    border-radius: 50%;
+    top: 30%;
+    left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 10px;
+      border: solid $primary-color;
+      border-width: 0 0 3px 3px;
+      transform: rotate(-45deg) translate(2px, -2px);
+    }
+  }
+  
+  &__lock {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: $white;
+    border-radius: 8px;
+    bottom: 25%;
+    right: -15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-color: $primary-color;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      height: 7px;
+      background-color: $white;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  &__cloud {
+    position: absolute;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    
+    &--1 {
+      width: 60px;
+      height: 30px;
+      bottom: 15%;
+      left: -20px;
+    }
+    
+    &--2 {
+      width: 80px;
+      height: 40px;
+      top: 10%;
+      right: -30px;
+    }
+    
+    &--3 {
+      width: 50px;
+      height: 25px;
+      bottom: 40%;
+      right: -15px;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .login {
+    &__content {
+      flex-direction: column-reverse;
+    }
+    
+    &__right {
+      min-height: 300px;
+    }
+    
+    &__phone {
+      transform: rotate(0);
+      width: 120px;
+      height: 240px;
+    }
+  }
+}

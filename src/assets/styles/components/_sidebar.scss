@@ -1,0 +1,40 @@
+$primary-color: #6b4eff;
+$text-color: #333;
+$bg-color: #f4f7fe;
+$active-bg-color: rgba(107, 74, 255, 0.1);
+$hover-bg-color: rgba(0, 0, 0, 0.05);
+
+.sidebar {
+    height: 100vh;
+    // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    width: 17em;
+    // border-right: 1px solid #e3e3e3;
+    background-color: $back;
+
+  &__top {
+    padding: .35em 0;
+    // border-bottom: 1px solid #e5f0f7;
+  }
+
+
+  &__bottom {
+    padding: 2em 0 2em 0;
+  }
+
+  &__logo {
+    display: block;
+    // border: 1px solid red;
+    width: 60%;
+    height: 100%;
+     
+     &__img {
+        object-fit: contain;
+        width: 12em;
+        height: 4em;
+     }
+  }
+}

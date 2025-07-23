@@ -1,0 +1,522 @@
+.profileCard {
+  padding: 20px;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  &__main {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; // Ajout pour responsivité
+  }
+
+  &__section {
+    flex: 1;
+    min-width: 300px; // Assure un minimum pour éviter que les sections soient trop étroites sur mobile
+  }
+
+  &__settings {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    &__section {
+      margin-bottom: 20px;
+
+      h3 {
+        font-size: 18px;
+        font-weight: 500;
+        color: #444;
+        margin-bottom: 10px;
+      }
+
+      .profileCard__dropdown {
+        position: relative;
+        width: 200px;
+
+        select {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-size: 14px;
+          appearance: none;
+          background: #fff;
+          cursor: pointer;
+          transition: border-color 0.2s;
+
+          &:hover {
+            border-color: #bbb;
+          }
+
+          &:focus {
+            outline: none;
+            border-color: #ff6200;
+          }
+        }
+
+        .dropdown-icon {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 16px;
+          color: #666;
+          pointer-events: none;
+        }
+
+        p {
+          font-size: 12px;
+          color: #666;
+          margin-top: 5px;
+        }
+      }
+    }
+
+    // Styles pour la modale d'édition
+    &__edit-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+
+      &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      &__content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 400px;
+        position: relative;
+
+        &__close {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: none;
+          border: none;
+          font-size: 20px;
+          color: #666;
+          cursor: pointer;
+        }
+
+        h3 {
+          font-size: 18px;
+          font-weight: 500;
+          color: #333;
+          margin-bottom: 20px;
+        }
+
+        .edit-form {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          label {
+            font-size: 14px;
+            color: #444;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            input {
+              padding: 8px;
+              border: 1px solid #ddd;
+              border-radius: 5px;
+              font-size: 14px;
+              transition: border-color 0.2s;
+
+              &:focus {
+                outline: none;
+                border-color: #ff6200;
+              }
+            }
+          }
+
+          button {
+            padding: 10px;
+            background: #ff6200;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+
+            &:hover {
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__visualization {
+    &__card {
+      .iphone-container {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+
+        .iphone {
+          position: relative;
+          width: 100%;
+          padding-top: 177.78%; // Ratio 9:16 pour un iPhone
+          background: #000;
+          border-radius: 40px;
+          overflow: hidden;
+
+          .iphone-screen {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: #fff;
+            border-radius: 30px;
+            overflow-y: auto; // Ajout pour permettre le scroll si contenu trop long
+
+            .dynamic-island {
+              height: 30px;
+              background: #000;
+              border-radius: 15px;
+              margin: 10px auto;
+              width: 50%;
+            }
+
+            .card-expired {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              height: 100%;
+              text-align: center;
+              color: #ff4444;
+
+              h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+              }
+
+              p {
+                font-size: 14px;
+                color: #666;
+              }
+            }
+
+            .card-preview {
+              min-height: 100%;
+              display: flex;
+              flex-direction: column;
+              padding: 20px;
+
+              &__top {
+                position: relative;
+                margin-bottom: 20px;
+
+                .card-preview__background {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background-size: cover;
+                  background-position: center;
+                  opacity: 0.3;
+                  z-index: 0;
+
+                  .badge-pro {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: #6b21a8;
+                    color: #fff;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    font-size: 12px;
+                  }
+
+                  .card-preview__share {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    color: #fff;
+                    font-size: 18px;
+                    cursor: pointer;
+                  }
+                }
+
+                .card-preview-avatar {
+                  position: relative;
+                  z-index: 1;
+                  text-align: center;
+
+                  .avatar-placeholder {
+                    display: inline-block;
+                    width: 80px;
+                    height: 80px;
+                    background: #ddd;
+                    border-radius: 50%;
+                    font-size: 30px;
+                    color: #666;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto;
+                  }
+
+                  .card-preview__verified {
+                    width: 10px;
+                    height: 10px;
+                    background: #00c853;
+                    border-radius: 50%;
+                    position: absolute;
+                    bottom: 5px;
+                    right: calc(50% - 45px);
+                    border: 2px solid #fff;
+                  }
+                }
+              }
+
+              &-info {
+                text-align: center;
+
+                .card-preview-name {
+                  font-size: 20px;
+                  font-weight: 600;
+                  color: #333;
+                  margin-bottom: 5px;
+                }
+
+                .card-preview-post {
+                  font-size: 14px;
+                  color: #666;
+                  margin-bottom: 15px;
+                }
+
+                &__btns {
+                  display: flex;
+                  gap: 10px;
+                  justify-content: center;
+                  margin-bottom: 20px;
+
+                  .card-preview__btns__btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 8px 15px;
+                    background: #ff6200;
+                    color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 12px;
+
+                    .card-preview__btns__ico {
+                      font-size: 16px;
+                    }
+
+                    &:hover {
+                      opacity: 0.9;
+                    }
+                  }
+                }
+
+                &__qrcode-modal {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  background: rgba(0, 0, 0, 0.5);
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  z-index: 1000;
+
+                  &__overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                  }
+
+                  &__content {
+                    background: #fff;
+                    padding: 20px;
+                    border-radius: 10px;
+                    text-align: center;
+                    position: relative;
+                    width: 100%;
+                    max-width: 300px;
+
+                    &__close {
+                      position: absolute;
+                      top: 10px;
+                      right: 10px;
+                      background: none;
+                      border: none;
+                      font-size: 20px;
+                      color: #666;
+                      cursor: pointer;
+                    }
+
+                    &__title {
+                      font-size: 18px;
+                      font-weight: 500;
+                      margin-bottom: 10px;
+                    }
+
+                    &__preview {
+                      margin: 10px 0;
+                    }
+
+                    &__name, &__post {
+                      font-size: 14px;
+                      color: #333;
+                    }
+                  }
+                }
+              }
+
+              &-socials {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+
+                .card-preview-social-icon {
+                  font-size: 20px;
+                  color: #333;
+                }
+
+                .card-preview-social-empty {
+                  font-size: 12px;
+                  color: #666;
+                  text-align: center;
+                }
+              }
+
+              &__bottom {
+                border-top: 1px solid #ddd;
+                padding-top: 15px;
+
+                .card-preview__contact, .card-preview__professionnel {
+                  margin-bottom: 15px;
+
+                  h3 {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #444;
+                    margin-bottom: 10px;
+                  }
+
+                  &__infos, &__company, &__tel {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 12px;
+                    color: #666;
+                    margin-bottom: 5px;
+
+                    .card-preview__contact__icon,
+                    .card-preview__professionnel__icon {
+                      font-size: 16px;
+                      color: #333;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Media queries pour responsivité
+  @media (max-width: 768px) {
+    .profileCard {
+      padding: 10px;
+
+      &__main {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      &__settings {
+        padding: 15px;
+      }
+
+      &__visualization {
+        &__card {
+          .iphone-container {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .profileCard {
+      &__title {
+        font-size: 20px;
+      }
+
+      &__settings {
+        &__section {
+          .profileCard__dropdown {
+            width: 100%;
+          }
+        }
+      }
+
+      &__visualization {
+        &__card {
+          .iphone-container {
+            .iphone {
+              border-radius: 20px;
+
+              .iphone-screen {
+                top: 5px;
+                left: 5px;
+                right: 5px;
+                bottom: 5px;
+                border-radius: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

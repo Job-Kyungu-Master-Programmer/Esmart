@@ -1,0 +1,189 @@
+.header {
+    width: 100%;
+    // background: white;
+    // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); // Ombre légèrement plus prononcée
+    position: sticky; // Remplace relative pour un effet sticky si désiré
+    top: 0;
+    z-index: 100;
+  
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .9rem 2.5rem; // Plus d'espace
+      max-width: 1440px; // Légèrement plus large
+      margin: 0 auto;
+    }
+  
+    &__left {
+      display: flex;
+      gap: 1.5rem; // Plus d'espace entre les éléments
+    }
+  
+    &__center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.5rem 0;
+    }
+  
+    &__right {
+      display: flex;
+      align-items: center;
+      gap: 2rem; // Plus d'espace
+    }
+  
+    &__button {
+      padding: 0.75rem 1.5rem; // Plus confortable
+      border-radius: .45em; // Coins plus doux
+      border: none;
+      background: white;
+      font-weight: 500; // Texte un peu plus épais
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease; // Transition plus douce
+      color: #50677f; // Couleur plus professionnelle
+  
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.06);
+      }
+  
+      &--with-icon {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+  
+      &--primary {
+        background-color: $primary-color;
+        color: white;
+        padding: 0.85rem 1.75rem; // Plus grand pour le CTA
+  
+        &:hover {
+          background-color: #6537e4; // Bleu plus sombre au hover
+          transform: translateY(-1px); // Légère élévation
+        }
+  
+        &:active {
+          transform: translateY(0); // Retour à la normale
+        }
+      }
+    }
+  
+    &__dropdown {
+      position: relative;
+  
+      &:hover {
+        .header__dropdown-content {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+    }
+  
+    &__dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 240px; // Plus large pour plus de confort
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); // Ombre plus douce
+      border-radius: 6px;
+      padding: 0.75rem 0; // Plus d'espace interne
+      z-index: 1000;
+      margin-top: 0.3rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 0.25s ease;
+  
+      &--active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  
+    &__dropdown-item {
+      display: flex;
+      align-items: center;
+      padding: 0.85rem 1.25rem; // Plus d'espace
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+  
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+    }
+  
+    &__dropdown-icon {
+      margin-right: 1rem; // Plus d'espace avec le texte
+      font-size: 1.25rem; // Taille ajustée pour les react-icons
+      color: #666; // Couleur plus douce
+      flex-shrink: 0;
+    }
+  
+    &__dropdown-text {
+      font-size: 0.95rem;
+      color: #2c3e50;
+    }
+  
+    &__icon-chevron {
+      font-size: 1.2rem; // Taille adaptée pour MdExpandMore
+      color: #666;
+      transition: transform 0.3s ease;
+  
+      .header__dropdown:hover & {
+        transform: rotate(180deg);
+        color:$primary-color; // Changement de couleur au hover
+      }
+    }
+  
+    &__logo {
+      text-align: center;
+
+
+      &__img {
+        object-fit: cover;
+        width: 11em;
+        height: 5.3em;
+      }
+    }
+  
+    &__phone {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+  
+      &-number {
+        font-weight: 600;
+        font-size: 1.2rem; // Légèrement plus grand
+        text-decoration: none;
+        color: #2c3e50;
+        transition: color 0.2s ease;
+  
+        &:hover {
+          color: $primary-color;
+        }
+      }
+  
+      &-text {
+        font-size: 0.8rem;
+        color: #7f8c8d;
+        margin-top: 0.2rem;
+      }
+    }
+  }
+  
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 230px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 0, 0, 0.15) 50%, rgba(255, 255, 255, 0) 100%);
+    z-index: -1;
+    pointer-events: none;
+  }

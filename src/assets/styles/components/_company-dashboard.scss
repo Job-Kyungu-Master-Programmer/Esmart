@@ -1,0 +1,31 @@
+
+    // display: flex;
+    // height: 100vh;
+  
+    .companyDashboard {
+        // border: 1px solid red;
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__link {
+            // margin-bottom: 2em;
+            padding: .7em 1em;
+            border-left: .45em solid transparent;
+            display: flex;
+            align-items: center;
+            color: #6b6b6b;
+            transition: all .5s ease-in-out ;
+
+            &:hover {
+                background-color: $light-color;
+                border-left: .45em solid $primary-color
+            }
+        }
+
+        &__icon {
+            margin-right: 1em;
+        }
+    }

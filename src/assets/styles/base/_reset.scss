@@ -1,0 +1,73 @@
+// base/_reset.scss
+
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #f6fbfe;
+    
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+  }
+  
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    height: 100%; 
+  }
+  
+  body {
+    // font-family: 'Roboto', Arial, sans-serif;
+    // font-size: 1vw;
+    font-size: clamp(16px, 1vw, 24px);
+    line-height: 1.5;
+    color: $text-color;
+    background-color: $light-color;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+  }
+
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+  transition: $transition-base;
+  
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+// base/_typography.scss
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-md;
+  font-weight: 700;
+  line-height: 1.2;
+}

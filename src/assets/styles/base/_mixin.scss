@@ -1,0 +1,25 @@
+
+
+
+@mixin section {
+    padding: 2em 1.7em;
+    height: 100%;
+    // box-shadow: 4px 5px 5px black;
+    border-radius: 15px 0 0 0;
+     border: 1px solid  #d8edfb;
+     background-color: white;
+}
+
+
+@mixin title {
+    font-weight: 400;
+    font-size: 1.7em;
+    color: #434d58;
+}
+
+
+@mixin section {
+    margin: 0 auto;
+    padding: 2em;
+    max-width: 1200px;
+  }
